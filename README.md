@@ -100,7 +100,56 @@ cp .env.example .env   # 各アプリ内で
 
 ---
 
-## 3. sample-app（AI プロンプター）
+## 3. Claude Code で開発を加速する（everything-evenhub プラグイン）
+
+上の「共通の作り方」を手で書く代わりに、**公式の Claude Code プラグイン `everything-evenhub`** を使うと、やりたいことを日本語/英語で頼むだけで、Claude が適切な手順（skill）を選んで実行してくれます。Even G2 開発の知識（SDK API・表示制約・シミュレータ・パッケージング等）を 13 個の skill にまとめた公式オープンソースです。
+
+### 導入（Claude Code 内で実行）
+
+```
+/plugin marketplace add even-realities/everything-evenhub
+/plugin install everything-evenhub@everything-evenhub
+/reload-plugins
+```
+
+導入後は skill 名を覚える必要はありません。「マイク録音をトグルするボタンを付けて」「実機向けにパッケージして」のように頼めば、Claude が対応する skill を自動で呼びます。
+
+### 入っている skill（13 個）
+
+| skill | 何をするか |
+|---|---|
+| `quickstart` | Vite + TypeScript + SDK でまっさらな G2 アプリを作る初期セットアップ |
+| `template` | evenhub-templates の starter から雛形を生成 |
+| `sdk-reference` | `@evenrealities/even_hub_sdk` の API リファレンス |
+| `cli-reference` | `evenhub` CLI（login / init / pack / qr 等）のリファレンス |
+| `glasses-ui` | G2 の表示制約に沿ったコンテナ・テキスト・画像・リストの UI 構築 |
+| `design-guidelines` | G2 向け表示デザインのガイドライン（読みやすさ・レイアウト） |
+| `font-measurement` | 組み込みフォントの文字幅計測（折り返し・はみ出し対策） |
+| `device-features` | マイク録音・IMU・デバイス情報などハードウェア機能 |
+| `handle-input` | タッチパッドのジェスチャー・R1 リング入力・ライフサイクルイベント |
+| `background-state` | バックグラウンド復帰時に状態を保持（`setBackgroundState` / `onBackgroundRestore`） |
+| `test-with-simulator` | シミュレータでの実行とデバッグ |
+| `simulator-automation` | HTTP API でスクリーンショット・入力注入・コンソールログを自動化 |
+| `build-and-deploy` | パッケージング（.ehpk）と配布 |
+
+### この 2 アプリで使える例
+
+- translate-app を**バックグラウンド対応**に（背面に回って戻っても状態が消えない）→ `background-state`
+- **実機向けにパッケージ＆配布** → `build-and-deploy`
+- **タッチ操作を追加**（例: タップで録音トグル、Double Tap を終了に予約）→ `handle-input` + `device-features`
+- **表示の折り返し・はみ出しを調整** → `glasses-ui` + `font-measurement`
+
+### 参考リンク
+
+- セットアップ: https://hub.evenrealities.com/docs/AI-tooling/claude%20code/index
+- Skill カタログ: https://hub.evenrealities.com/docs/AI-tooling/claude%20code/skill-catalog
+- プラグイン（OSS）: https://github.com/even-realities/everything-evenhub
+
+> このほかコミュニティ製（サードパーティ）の連携もあります（例: G2 の音声を外部エージェントへ橋渡しする `even-g2-bridge`、G2 からハンズフリーで Claude Code を操作する `claude-code-g2`）。アプリ本体を作って実機に載せる用途なら、まずは公式の `everything-evenhub` だけで十分です。
+
+---
+
+## 4. sample-app（AI プロンプター）
 
 貼り付けたテキストを Gemini で要約し、G2 に**ページめくり表示**します。登壇のカンペ、記事ブリーフィング、議事録整理などに。
 
@@ -135,7 +184,7 @@ pnpm sim
 
 ---
 
-## 4. translate-app（ライブ翻訳）
+## 5. translate-app（ライブ翻訳）
 
 マイクで拾った**英語**をブラウザの音声認識で文字にし、Gemini で**日本語**へ翻訳して G2 に **1〜2 行**表示します。海外スピーカーを聞きながら訳文を読む用途。
 
@@ -194,7 +243,7 @@ pnpm test   # 訳文整形 cleanTranslation の単体テスト（vitest）
 
 ---
 
-## 5. コマンド早見表
+## 6. コマンド早見表
 
 各アプリのディレクトリ内で実行します。
 
@@ -212,7 +261,7 @@ pnpm test   # 訳文整形 cleanTranslation の単体テスト（vitest）
 
 ---
 
-## 6. ディレクトリ構成
+## 7. ディレクトリ構成
 
 ```
 eveng2/
