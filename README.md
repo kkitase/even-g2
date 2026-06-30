@@ -284,5 +284,6 @@ eveng2/
 
 - 公式 Even Hub Docs: https://hub.evenrealities.com/docs
 - SDK npm: https://www.npmjs.com/package/@evenrealities/even_hub_sdk
+- everything-evenhub（Claude Code skill 集・公式 OSS）: https://github.com/even-realities/everything-evenhub
 - コミュニティ docs: https://github.com/nickustinov/even-g2-notes
 - BLE プロトコル解析: https://github.com/i-soxi/even-g2-protocol
