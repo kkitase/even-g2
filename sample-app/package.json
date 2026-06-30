@@ -1,0 +1,21 @@
+{
+  "name": "eveng2-sample-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "build": "vite build",
+    "sim": "evenhub-simulator http://localhost:5173/?glass",
+    "qr": "evenhub qr --http --port 5173",
+    "pack": "pnpm run build && evenhub pack app.json dist -o eveng2-sample.ehpk"
+  },
+  "dependencies": {
+    "@evenrealities/even_hub_sdk": "^0.0.10",
+    "@google/genai": "^2.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  }
+}

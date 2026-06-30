@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Even G2 · AI Prompter</title>
+    <style>
+      :root {
+        --bg: #0d1117;
+        --fg: #e6edf3;
+        --muted: #8b949e;
+        --accent: #4ade80;
+        --card: #161b22;
+        --border: #30363d;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
+        background: var(--bg);
+        color: var(--fg);
+      }
+      .app { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px; }
+      h1 { font-size: 24px; margin: 0 0 4px; }
+      h2 { font-size: 16px; margin: 0 0 12px; color: var(--muted); font-weight: 600; }
+      .hint { color: var(--muted); margin: 0 0 24px; font-size: 14px; }
+      .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+      label { display: block; margin-bottom: 16px; }
+      .label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+      select, textarea {
+        width: 100%;
+        background: var(--bg);
+        color: var(--fg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px 12px;
+        font-size: 14px;
+        font-family: inherit;
+      }
+      textarea { resize: vertical; font-family: ui-monospace, SFMono-Regular, monospace; line-height: 1.5; }
+      .actions { display: flex; align-items: center; gap: 12px; }
+      button {
+        background: var(--accent);
+        color: #052e16;
+        border: 0;
+        border-radius: 8px;
+        padding: 10px 18px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      button:disabled { opacity: 0.5; cursor: progress; }
+      .status { font-size: 13px; color: var(--muted); }
+      .meta { font-size: 12px; color: var(--muted); margin-bottom: 12px; font-family: ui-monospace, monospace; }
+      .pages { list-style: none; padding: 0; margin: 0; counter-reset: page; }
+      .pages li {
+        counter-increment: page;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px 14px 12px 44px;
+        margin-bottom: 8px;
+        white-space: pre-wrap;
+        font-family: ui-monospace, monospace;
+        font-size: 13px;
+        line-height: 1.5;
+        position: relative;
+      }
+      .pages li::before {
+        content: counter(page);
+        position: absolute;
+        left: 12px;
+        top: 12px;
+        width: 22px; height: 22px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #052e16;
+        font-family: -apple-system, sans-serif;
+        font-weight: 700;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .glass { max-width: 720px; margin: 0 auto; padding: 24px 20px 80px; }
+      .glass dl.status { display: grid; grid-template-columns: 100px 1fr; gap: 4px 12px; margin: 16px 0 24px; font-family: ui-monospace, monospace; font-size: 13px; }
+      .glass dl.status dt { color: var(--muted); }
+      .glass pre#g-current { background: #000; color: var(--accent); border: 1px solid var(--accent); border-radius: 8px; padding: 16px; font-family: ui-monospace, monospace; font-size: 14px; line-height: 1.55; white-space: pre-wrap; word-break: break-word; min-height: 200px; }
+    </style>
+  </head>
+  <body>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

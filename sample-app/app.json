@@ -1,0 +1,8 @@
+{
+  "package_id": "com.kkitase.eveng2.sample",
+  "name": "Even G2 Sample",
+  "version": "0.1.0",
+  "description": "Even Realities G2 向けの最小サンプルプラグイン",
+  "author": "kkitase",
+  "entrypoint": "index.html"
+}

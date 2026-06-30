@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+*.ehpk
+
+# Environment (secrets: API キーは絶対にコミットしない)
+.env
+.env.local
+
+# Tool caches / scratch
+.vite/
+.playwright-mcp/
+
+# pptx skill の作業用展開ディレクトリ（.pptx から再生成可能）
+docs/build/unpacked/
+
+# Claude Code のローカル(個人)設定
+.claude/settings.local.json
+
+# macOS
+.DS_Store

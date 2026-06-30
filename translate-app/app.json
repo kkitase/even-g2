@@ -1,0 +1,8 @@
+{
+  "package_id": "com.kkitase.eveng2.translate",
+  "name": "Even G2 Live Translate",
+  "version": "0.1.0",
+  "description": "マイクの英語をリアルタイムに日本語へ翻訳して G2 に表示するプラグイン",
+  "author": "kkitase",
+  "entrypoint": "index.html"
+}
