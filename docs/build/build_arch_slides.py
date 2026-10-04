@@ -14,9 +14,9 @@ from collections import defaultdict
 from pathlib import Path
 
 SRC_PPTX = Path(
-    "/Users/kkitase/dev/project/99-eveng2/docs/スマートグラス3製品比較-slide.pptx"
+    "/Users/kkitase/project/99-eveng2/docs/スマートグラス3製品比較-slide.pptx"
 )
-OUT_PPTX = Path("/Users/kkitase/dev/project/99-eveng2/docs/architecture.pptx")
+OUT_PPTX = Path("/Users/kkitase/project/99-eveng2/docs/architecture.pptx")
 
 
 def replace_each(path: Path, pairs: list[tuple[str, str]]) -> None:

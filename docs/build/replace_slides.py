@@ -19,7 +19,7 @@ def replace_each(path: Path, pairs):
 
 
 SLIDES_DIR = Path(
-    "/Users/kkitase/dev/project/99-eveng2/docs/build/unpacked/ppt/slides"
+    "/Users/kkitase/project/99-eveng2/docs/build/unpacked/ppt/slides"
 )
 
 

@@ -9,7 +9,7 @@
 from collections import defaultdict
 from pathlib import Path
 
-ROOT = Path("/Users/kkitase/dev/project/99-eveng2/docs/build/unpacked")
+ROOT = Path("/Users/kkitase/project/99-eveng2/docs/build/unpacked")
 SLIDES_DIR = ROOT / "ppt/slides"
 NOTES_DIR = ROOT / "ppt/notesSlides"
 
